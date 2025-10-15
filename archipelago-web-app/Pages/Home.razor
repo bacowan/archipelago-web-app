@@ -2,6 +2,25 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="d-flex flex-column align-items-center justify-content-center h-100 gap-3">
+    <label class="w-50">
+        Host and Port:
+        <input type="text" class="form-control" @bind="hostAndPort">
+    </label>
+    <label class="w-50">
+        Player Name:
+        <input type="text" class="form-control" @bind="playerName">
+    </label>
+    <label class="w-50">
+        Server Address:
+        <input type="password" class="form-control" @bind="password">
+    </label>
+</div>
 
-Welcome to your new app.
+@code {
+    private string hostAndPort = "archipelago.gg:...";
+
+    private string playerName = "";
+
+    private string password = "";
+}
