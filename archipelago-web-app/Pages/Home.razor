@@ -1,26 +1,32 @@
 ﻿@page "/"
+@using archipelagoWebApp.Models
+@inject ILogger<ConnectForm> Logger
 
 <PageTitle>Home</PageTitle>
 
-<div class="d-flex flex-column align-items-center justify-content-center h-100 gap-3">
+<EditForm Model="Model" OnSubmit="Submit" FormName="Starship1" class="d-flex flex-column align-items-center justify-content-center h-100 gap-3">
     <label class="w-50">
         Host and Port:
-        <input type="text" class="form-control" @bind="hostAndPort">
+        <InputText @bind-Value="Model!.HostAndPort" class="form-control"/>
     </label>
     <label class="w-50">
         Player Name:
-        <input type="text" class="form-control" @bind="playerName">
+        <InputText @bind-Value="Model!.PlayerName" class="form-control"/>
     </label>
     <label class="w-50">
-        Server Address:
-        <input type="password" class="form-control" @bind="password">
+        Password:
+        <InputText type="password" @bind-Value="Model!.Password" class="form-control"/>
     </label>
-</div>
+    <input type="submit" value="Login & Connect" />
+</EditForm>
 
 @code {
-    private string hostAndPort = "archipelago.gg:...";
+    [SupplyParameterFromForm]
+    private ConnectForm? Model { get; set; }
 
-    private string playerName = "";
+    protected override void OnInitialized() => Model ??= new();
 
-    private string password = "";
+    private void Submit() {
+        Logger.LogInformation("Id = {Id}", Model?.HostAndPort);
+    }
 }
