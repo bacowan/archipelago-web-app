@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using Archipelago.MultiClient.Net
 @using archipelagoWebApp.Models
 @inject ILogger<ConnectForm> Logger
 
@@ -20,13 +21,32 @@
     <input type="submit" value="Login & Connect" />
 </EditForm>
 
+<LoadingSpinner Visible="@LoadingSpinnerVisible" />
+
+
 @code {
     [SupplyParameterFromForm]
     private ConnectForm? Model { get; set; }
 
+    private Boolean LoadingSpinnerVisible { get; set; } = false;
+
     protected override void OnInitialized() => Model ??= new();
 
-    private void Submit() {
+    private async Task Submit() {
+        var session = ArchipelagoSessionFactory.CreateSession(Model?.HostAndPort);
+        
+        try {
+            LoadingSpinnerVisible = true;
+            await session.ConnectAsync();
+        }
+        catch {
+
+        }
+        finally {
+            LoadingSpinnerVisible = false;
+        }
+
+
         Logger.LogInformation("Id = {Id}", Model?.HostAndPort);
     }
 }

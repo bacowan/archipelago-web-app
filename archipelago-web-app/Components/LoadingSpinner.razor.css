@@ -1,0 +1,8 @@
+.spinner-container {
+    position: absolute;
+    inset: 0; /* shorthand for top/left/right/bottom = 0 */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+}
