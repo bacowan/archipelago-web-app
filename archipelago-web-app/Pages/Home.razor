@@ -2,9 +2,9 @@
 @using archipelagoWebApp.Models
 @inject ILogger<ConnectForm> Logger
 
-<PageTitle>Home</PageTitle>
+<h1 class="text-center py-3">Archipelago Web App</h1>
 
-<EditForm Model="Model" OnSubmit="Submit" FormName="Starship1" class="d-flex flex-column align-items-center justify-content-center h-100 gap-3">
+<EditForm Model="Model" OnSubmit="Submit" FormName="Connection" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 gap-3">
     <label class="w-50">
         Host and Port:
         <InputText @bind-Value="Model!.HostAndPort" class="form-control"/>
