@@ -1,7 +1,10 @@
 ﻿@using archipelago_web_app.Models
 @inject ArchipelagoSession Session
 
-<EditForm Model="Model" OnSubmit="Submit" FormName="Connection" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 gap-3 w-100">
+
+<h1 class="text-center py-3">Archipelago Web App</h1>
+
+<EditForm Model="Model" OnSubmit="Submit" FormName="Connection" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 gap-3">
     <label class="w-50">
         Host and Port:
         <InputText @bind-Value="Model!.HostAndPort" class="form-control"/>
@@ -32,7 +35,7 @@
         if (Model != null) {
             try {
                 LoadingSpinnerVisible = true;
-                await Session.NewSession(Model.HostAndPort);
+                await Session.NewSession(Model.HostAndPort, Model.PlayerName, Model.Password);
                 
             }
             catch (Exception e) {

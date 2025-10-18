@@ -4,16 +4,12 @@
 
 @inject ArchipelagoSession Session
 
-<h1 class="text-center py-3">Archipelago Web App</h1>
-
-<div class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
-    @if (Session.IsConnectionOpen) {
-        <GameHome/>
-    }
-    else {
-        <ConnectionForm/>
-    }
-</div>
+@if (Session.IsConnectionOpen) {
+    <GameHome/>
+}
+else {
+    <ConnectionForm/>
+}
 
 @code {
 
