@@ -1,7 +1,7 @@
 using System;
 using System.Net.WebSockets;
 
-namespace archipelagoWebApp.Models;
+namespace archipelago_web_app.Models;
 
 public class ArchipelagoSession
 {

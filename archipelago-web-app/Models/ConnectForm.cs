@@ -1,6 +1,6 @@
 using System;
 
-namespace archipelagoWebApp.Models;
+namespace archipelago_web_app.Models;
 
 public class ConnectForm
 {
