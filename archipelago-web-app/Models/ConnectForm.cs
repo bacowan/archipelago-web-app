@@ -4,7 +4,7 @@ namespace archipelagoWebApp.Models;
 
 public class ConnectForm
 {
-    public string HostAndPort { get; set;  } = "archipelago.gg:38281";
+    public string HostAndPort { get; set;  } = "archipelago.gg:43695";
 
     public string PlayerName { get; set;  } = "";
 

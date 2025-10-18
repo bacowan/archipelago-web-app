@@ -1,6 +1,6 @@
 ﻿@page "/"
-@using Archipelago.MultiClient.Net
 @using archipelagoWebApp.Models
+@inject ArchipelagoSession Session
 @inject ILogger<ConnectForm> Logger
 
 <h1 class="text-center py-3">Archipelago Web App</h1>
@@ -33,20 +33,18 @@
     protected override void OnInitialized() => Model ??= new();
 
     private async Task Submit() {
-        var session = ArchipelagoSessionFactory.CreateSession(Model?.HostAndPort);
-        
-        try {
-            LoadingSpinnerVisible = true;
-            await session.ConnectAsync();
+        if (Model != null) {
+            try {
+                LoadingSpinnerVisible = true;
+                await Session.NewSession(Model.HostAndPort);
+                
+            }
+            catch (Exception e) {
+                var a = e;
+            }
+            finally {
+                LoadingSpinnerVisible = false;
+            }
         }
-        catch {
-
-        }
-        finally {
-            LoadingSpinnerVisible = false;
-        }
-
-
-        Logger.LogInformation("Id = {Id}", Model?.HostAndPort);
     }
 }
