@@ -1,7 +1,7 @@
 ﻿@using archipelago_web_app.Models
 @inject ArchipelagoSession Session
 
-<EditForm Model="Model" OnSubmit="Submit" FormName="Connection" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 gap-3">
+<EditForm Model="Model" OnSubmit="Submit" FormName="Connection" class="d-flex flex-column align-items-center justify-content-center flex-grow-1 gap-3 w-100">
     <label class="w-50">
         Host and Port:
         <InputText @bind-Value="Model!.HostAndPort" class="form-control"/>
@@ -24,7 +24,7 @@
     [SupplyParameterFromForm]
     private ConnectFormData? Model { get; set; }
 
-    private Boolean LoadingSpinnerVisible { get; set; } = false;
+    private bool LoadingSpinnerVisible { get; set; } = false;
 
     protected override void OnInitialized() => Model ??= new();
 

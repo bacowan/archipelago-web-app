@@ -1,5 +1,27 @@
 ﻿@page "/"
+@using archipelago_web_app.Events
+@using archipelago_web_app.Models
+
+@inject ArchipelagoSession Session
 
 <h1 class="text-center py-3">Archipelago Web App</h1>
 
-<ConnectionForm/>
+<div class="d-flex flex-column align-items-center justify-content-center flex-grow-1">
+    @if (Session.IsConnectionOpen) {
+        <GameHome/>
+    }
+    else {
+        <ConnectionForm/>
+    }
+</div>
+
+@code {
+
+    private void OnConnectionStateChanged(object? sender, ConnectionStateChangedEventArgs e) {
+        InvokeAsync(StateHasChanged);
+    }
+
+    protected override void OnInitialized() {
+        Session.ConnectionStateChanged += OnConnectionStateChanged;
+    }
+}
