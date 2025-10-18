@@ -2,7 +2,7 @@ using System;
 
 namespace archipelago_web_app.Models;
 
-public class ConnectForm
+public class ConnectFormData
 {
     public string HostAndPort { get; set;  } = "archipelago.gg:43695";
 
