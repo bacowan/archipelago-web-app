@@ -1,9 +1,4 @@
 /* /Components/GameHome.razor.rz.scp.css */
-/* Component-scoped CSS for GameHome.razor
-   Styles emulate Bootstrap's list-group/list-group-item behavior
-   and make each item behave like a full-width page link.
-*/
-
 ul.list-group[b-0ismrth673] {
     /* remove default list styles and let width be controlled by markup */
     list-style: none;
