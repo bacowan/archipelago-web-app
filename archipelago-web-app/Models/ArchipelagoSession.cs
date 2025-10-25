@@ -130,7 +130,6 @@ public class ArchipelagoSession
             throw;
         }
 
-
         ConnectionStateChanged?.Invoke(this, new(true));
     }
 }

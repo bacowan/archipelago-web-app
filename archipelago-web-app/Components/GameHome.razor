@@ -1,4 +1,9 @@
-﻿<h3>Connected as </h3>
+﻿@using archipelago_web_app.Models
+@inject ArchipelagoSession Session
+
+<h1 class="text-center py-3">
+    Connected as @Session.ConnectionData?.players.FirstOrDefault(p => p.slot == Session.ConnectionData?.slot).name
+</h1>
 
 @code {
 
