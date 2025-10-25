@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "archipelago-web-app",
   "resources": {
-    "hash": "sha256-NYnA+WF/6zfA9a2nJE43Z1wquZdDjWzZ1c5K007Z0zQ=",
+    "hash": "sha256-/Gt+F1l8ZxhoTYnICIZLpQ/qlDvq2XKBMA7HdQaCTBE=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.evczarbdfd.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Forms.bi41youesg.wasm": "Microsoft.AspNetCore.Components.Forms.wasm",
@@ -66,7 +66,7 @@
       "System.Xml.XDocument.7lwqr4899m.wasm": "System.Xml.XDocument.wasm",
       "System.m0fu6d0eya.wasm": "System.wasm",
       "System.Private.CoreLib.dbcba24pa6.wasm": "System.Private.CoreLib.wasm",
-      "archipelago-web-app.u24k6buaij.wasm": "archipelago-web-app.wasm",
+      "archipelago-web-app.hw1gn1ce2x.wasm": "archipelago-web-app.wasm",
       "dotnet.js": "dotnet.js",
       "dotnet.native.9ih887ebfz.js": "dotnet.native.js",
       "dotnet.native.21mns4qp4i.wasm": "dotnet.native.wasm",
@@ -155,7 +155,7 @@
       "System.Xml.ReaderWriter.27sxhrkw43.wasm": "sha256-/knwe0vI8PIfJbzxp6Tj0C73ucDk45O6P9HRr2Nba7Q=",
       "System.Xml.XDocument.7lwqr4899m.wasm": "sha256-e3L7s5yS/QYP10aPEIzvCa+38xNs3qtSsbLAJgQ4nfw=",
       "System.m0fu6d0eya.wasm": "sha256-hkGLo/MuT/FJ0Xf4XUL0D2VA4dZV532GHNB1JicxLko=",
-      "archipelago-web-app.u24k6buaij.wasm": "sha256-WnwCjqmQeg2ebyJF/ir0HnK1JZmwa4gZIJ3RGbJEMOw="
+      "archipelago-web-app.hw1gn1ce2x.wasm": "sha256-XzeKdyrdjrbNACZJT5rHEITofdSeeQgxFZFvGOgWoEY="
     }
   },
   "cacheBootResources": true,
