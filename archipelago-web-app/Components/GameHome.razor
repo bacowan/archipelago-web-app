@@ -14,10 +14,9 @@
         </button>
     </label>
     <ul class="list-group w-100">
-        <li class="list-group-item list-group-item-action">Hi</li>
-        <li class="list-group-item list-group-item-action">There</li>
-        <li class="list-group-item list-group-item-action">World</li>
-        <li class="list-group-item list-group-item-action">!</li>
+        @foreach (var item in Session.ConnectionData?.slot_data ?? Enumerable.Empty<KeyValuePair<string, string>>()) {
+            <li class="list-group-item list-group-item-action">@item.Key</li>
+        }
     </ul>
 </div>
 
