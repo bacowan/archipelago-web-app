@@ -1,3 +1,51 @@
+/* /Components/GameHome.razor.rz.scp.css */
+/* Component-scoped CSS for GameHome.razor
+   Styles emulate Bootstrap's list-group/list-group-item behavior
+   and make each item behave like a full-width page link.
+*/
+
+ul.list-group[b-0ismrth673] {
+    /* remove default list styles and let width be controlled by markup */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Make each item fill the container, look like a Bootstrap list-group-item
+   and have a hover/focus state that resembles a clickable link. */
+li.list-group-item[b-0ismrth673] {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: .75rem 1.25rem;
+    margin-bottom: .5rem;
+    border: 1px solid #dee2e6; /* Bootstrap border color */
+    border-radius: .25rem;
+    background-color: #fff;
+    color: #212529; /* Bootstrap body color */
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease-in-out, color .15s ease-in-out;
+}
+
+li.list-group-item:hover[b-0ismrth673],
+li.list-group-item:focus[b-0ismrth673] {
+    background-color: #f8f9fa; /* Bootstrap hover light gray */
+    color: #212529;
+}
+
+/* Small visual tweak for active/selected look */
+li.list-group-item.active[b-0ismrth673] {
+    background-color: #0d6efd; /* Bootstrap primary */
+    border-color: #0d6efd;
+    color: #fff;
+}
+
+/* Make sure inner content (if anchors or buttons are added later) stretches */
+li.list-group-item > *[b-0ismrth673] {
+    display: block;
+    width: 100%;
+}
 /* /Components/LoadingSpinner.razor.rz.scp.css */
 .spinner-container[b-ef5b85dd2t] {
     position: absolute;
