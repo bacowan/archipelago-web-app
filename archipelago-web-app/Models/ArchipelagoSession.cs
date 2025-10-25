@@ -10,7 +10,7 @@ namespace archipelago_web_app.Models;
 
 public class ArchipelagoSession
 {
-    private const string gameName = "Jigsaw";
+    private const string gameName = "Scavenger Hunt";
 
     private ClientWebSocket? activeWebSocket;
 
@@ -54,11 +54,19 @@ public class ArchipelagoSession
         // https://github.com/ArchipelagoMW/Archipelago/blob/main/docs/network%20protocol.md
 
         // 1. Client establishes WebSocket connection to Archipelago server.
-        await activeWebSocket.ConnectAsync(new("wss://" + connectionString), default);
+
+        // try ws first, then go to wss if it doesn't
+        try
+        {
+            await activeWebSocket.ConnectAsync(new("ws://" + connectionString), default);
+        }
+        catch
+        {
+            await activeWebSocket.ConnectAsync(new("wss://" + connectionString), default);
+        }
 
         try
         {
-
             //  2. Server accepts connection and responds with a RoomInfo packet.
             var roomInfoString = await receiveMessage(activeWebSocket);
             var roomInfo = JsonSerializer.Deserialize<List<RoomInfo>>(roomInfoString);
