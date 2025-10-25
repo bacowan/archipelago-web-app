@@ -18,6 +18,8 @@ public class ArchipelagoSession
 
     public event EventHandler<ConnectionStateChangedEventArgs>? ConnectionStateChanged;
 
+    public ConnectionData? ConnectionData { get; private set; }
+
     private static async Task<string> receiveMessage(WebSocket webSocket)
     {
         var buffer = new byte[1024];
@@ -36,6 +38,7 @@ public class ArchipelagoSession
 
     private async Task CloseActiveConnectionIfOpen()
     {
+        ConnectionData = null;
         if (activeWebSocket != null && activeWebSocket.State == WebSocketState.Open)
         {
             await activeWebSocket.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client Closed", default);
@@ -87,7 +90,7 @@ public class ArchipelagoSession
                 roomInfo.First().version,
                 ItemsHandling.FromOtherWorlds & ItemsHandling.FromOwnWorld & ItemsHandling.StartingInventory,
                 new List<string> { },
-                false);
+                true);
 
             var packetString = JsonSerializer.Serialize(new List<ConnectCommand> { packetData });
             var packetBuffer = Encoding.UTF8.GetBytes(packetString);
@@ -104,7 +107,8 @@ public class ArchipelagoSession
 
             if (connectionResultDocument.RootElement[0].TryGetProperty("slot", out _))
             {
-                var connectionResultObject = JsonSerializer.Deserialize<List<ConnectedResult>>(connectionResult);
+                var connectionResultObject = JsonSerializer.Deserialize<List<ConnectionData>>(connectionResult);
+                ConnectionData = connectionResultObject?.FirstOrDefault();
             }
             else
             {
