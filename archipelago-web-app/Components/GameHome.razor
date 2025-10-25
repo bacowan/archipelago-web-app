@@ -5,10 +5,13 @@
     Connected as @Session.ConnectionData?.players.FirstOrDefault(p => p.slot == Session.ConnectionData?.slot).name
 </h1>
 
-<div class="d-flex flex-column align-items-center  flex-grow-1 gap-3">
-    <label class="w-100 d-inline-flex gap-3 align-items-center">
-        Search:
-        <InputText @bind-Value="SearchText" class="w-100"/>
+<div class="d-flex flex-column align-items-center flex-grow-1 gap-3">
+    <label class="w-100 input-group">
+        <span class="input-group-text">Search</span>
+        <InputText id="search_text" @bind-Value="SearchText" class="form-control" />
+        <button type="button" class="btn btn-primary" aria-label="Search">
+            <Search />
+        </button>
     </label>
     <ul class="list-group w-100">
         <li class="list-group-item list-group-item-action">Hi</li>
