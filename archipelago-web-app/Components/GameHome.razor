@@ -15,11 +15,47 @@
     </label>
     <ul class="list-group w-100">
         @foreach (var item in Session.ConnectionData?.slot_data ?? Enumerable.Empty<KeyValuePair<string, string>>()) {
-            <li class="list-group-item list-group-item-action">@item.Key</li>
+            <li class="list-group-item list-group-item-action text-start">
+                <button type="button" class="w-100 h-100 border-0 bg-transparent p-0 text-body" @onclick="() => ShowConfirm(item)">@item.Key</button>
+            </li>
         }
     </ul>
+
+    @if (IsConfirmVisible)
+    {
+        <div class="confirm-overlay">
+            <div class="confirm-box" role="dialog">
+                <p class="mb-3">Clear @confirmTargetKey?</p>
+                <div class="d-flex justify-content-end gap-2">
+                    <button class="btn btn-secondary" @onclick="Cancel">No</button>
+                    <button class="btn btn-primary" @onclick="Confirm">Yes</button>
+                </div>
+            </div>
+        </div>
+    }
 </div>
 
 @code {
     private string SearchText { get; set; } = "";
+    private bool IsConfirmVisible { get; set; } = false;
+    private string confirmTargetKey { get; set; } = string.Empty;
+    private string LastConfirmed { get; set; } = string.Empty;
+
+    private void ShowConfirm(KeyValuePair<string, string> item)
+    {
+        confirmTargetKey = item.Key;
+        IsConfirmVisible = true;
+    }
+
+    private void Cancel()
+    {
+        IsConfirmVisible = false;
+        confirmTargetKey = string.Empty;
+    }
+
+    private void Confirm()
+    {
+        IsConfirmVisible = false;
+        confirmTargetKey = string.Empty;
+    }
 }
